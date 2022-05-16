@@ -1,20 +1,20 @@
 下载地址：
-wget https://dlcdn.apache.org//activemq/5.16.5/apache-activemq-5.16.5-bin.tar.gz --no-check-certificate
+```wget https://dlcdn.apache.org//activemq/5.16.5/apache-activemq-5.16.5-bin.tar.gz --no-check-certificate```
 
 额外需要java下载
-https://www.oracle.com/java/technologies/downloads/
+```https://www.oracle.com/java/technologies/downloads/```
 
 
-rpm -ivh https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.rpm
+```rpm -ivh https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.rpm```
 
 
 python库下载
-pip3 install stomp.py
+```pip3 install stomp.py```
 
 
 启动：
 相应的bin目录下启动
-activemq start
+```activemq start```
 
 
 
@@ -26,7 +26,7 @@ topic  一堆多，无状态，不消费会丢失
 
 第一次测试：
 生成5w条数据，重启后消失，kahadb正常，配置正常，broswer里面点开发现消息为未持久化状态。
-#!/usr/bin/env python
+```#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # author : wzp
 # date : 20220516
@@ -47,20 +47,20 @@ if __name__ == "__main__":
     conn.connect(username="admin",passcode="Ebupt#2016",wait=True)
     for i in range(1,50000):
         send_to_queue()
-
+```
 
 查看activemq默认配置正常，查询还需要在send()时添加 persistent=“true”
 keyword_headers: any additional headers the broker requires，确实是添加到headers里面
 过期策略确实可以按这个方式添加，还有过期时间，但是官方没有给出demo
 Finally, STOMP servers MAY use additional headers to give access to features like persistency or expiration. Consult your server's documentation for details.
-https://stomp.github.io/stomp-specification-1.2.html#SEND
+```https://stomp.github.io/stomp-specification-1.2.html#SEND```
 另外在一次sender结束后，会在frame.headers 放一条{'receipt': '7e234e42-710f-4f37-a06a-8f03283bb008'}
 看源码这个在baseconnection中可以自定义
 
 
 重启后会丢失 non persistent的queue消息，已通过验证。
 测试最终版, 消费者会fork出一个线程
-#!/usr/bin/env python
+```#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # author : wzp
 # date : 20220516
@@ -128,7 +128,7 @@ if __name__ == "__main__":
         if not conn.is_connected():
             conn.connect(username="admin",passcode="Ebupt#2016",wait=True)
     conn.disconnect()
-
+```
 
 
 测试意外关闭activemq，重启后自动重连，如果不设置 reconnect_attempts_max，默认值=3 ，在connect里面定义

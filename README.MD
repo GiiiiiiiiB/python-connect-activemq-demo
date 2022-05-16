@@ -1,4 +1,4 @@
-####下载地址：
+![输入图片说明](pic/clipboard2.png)####下载地址：
 ```wget https://dlcdn.apache.org//activemq/5.16.5/apache-activemq-5.16.5-bin.tar.gz --no-check-certificate```
 
 ####额外需要java下载
@@ -131,10 +131,10 @@ if __name__ == "__main__":
 
 
 测试意外关闭activemq，重启后自动重连，如果不设置 reconnect_attempts_max，默认值=3 ，在connect里面定义
-
+![输入图片说明](pic/clipboard.png)
 
 正常结束关闭
-
+![输入图片说明](pic/clipboard2.png)
 
 参考：
 https://blog.csdn.net/qq_36059561/article/details/104286702  持久化 java

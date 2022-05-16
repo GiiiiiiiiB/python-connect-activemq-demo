@@ -1,7 +1,7 @@
-> 下载地址：
+#### 下载地址：
 ```wget https://dlcdn.apache.org//activemq/5.16.5/apache-activemq-5.16.5-bin.tar.gz --no-check-certificate```
 
-> 额外需要java下载
+#### 额外需要java下载
 ```https://www.oracle.com/java/technologies/downloads/```
 
 
@@ -51,6 +51,7 @@ if __name__ == "__main__":
 ### 查看activemq默认配置正常，查询还需要在send()时添加 persistent=“true”
 > keyword_headers: any additional headers the broker requires，确实是添加到headers里面
 过期策略确实可以按这个方式添加，还有过期时间，但是官方没有给出demo
+
 > Finally, STOMP servers MAY use additional headers to give access to features like persistency or expiration. Consult your server's documentation for details.
 ```https://stomp.github.io/stomp-specification-1.2.html#SEND```
 #### 另外在一次sender结束后，会在frame.headers 放一条{'receipt': '7e234e42-710f-4f37-a06a-8f03283bb008'}

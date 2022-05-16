@@ -19,7 +19,7 @@
 
 
 #### tips :
->>activemq queue和topic的不同：
+> activemq queue和topic的不同：
 queue 一对一，不消费会存储，如果持久化，send()如果队列不存在会创建一个。
 topic  一堆多，无状态，不消费会丢失
 
@@ -48,18 +48,19 @@ if __name__ == "__main__":
         send_to_queue()
 ```
 
-### 查看activemq默认配置正常，查询还需要在send()时添加 persistent=“true”
+> 查看activemq默认配置正常，查询还需要在send()时添加 persistent=“true”
+
 > keyword_headers: any additional headers the broker requires，确实是添加到headers里面
 过期策略确实可以按这个方式添加，还有过期时间，但是官方没有给出demo
 
 > Finally, STOMP servers MAY use additional headers to give access to features like persistency or expiration. Consult your server's documentation for details.
 ```https://stomp.github.io/stomp-specification-1.2.html#SEND```
-#### 另外在一次sender结束后，会在frame.headers 放一条{'receipt': '7e234e42-710f-4f37-a06a-8f03283bb008'}
+> 另外在一次sender结束后，会在frame.headers 放一条{'receipt': '7e234e42-710f-4f37-a06a-8f03283bb008'}
 看源码这个在baseconnection中可以自定义
 
 
-重启后会丢失 non persistent的queue消息，已通过验证。
-##### 测试最终版, 消费者会fork出一个线程
+#### 重启后会丢失 non persistent的queue消息，已通过验证。
+#### 测试最终版, 消费者会fork出一个线程
 ```#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # author : wzp
@@ -131,10 +132,10 @@ if __name__ == "__main__":
 ```
 
 
-测试意外关闭activemq，重启后自动重连，如果不设置 reconnect_attempts_max，默认值=3 ，在connect里面定义
+#### 测试意外关闭activemq，重启后自动重连，如果不设置 reconnect_attempts_max，默认值=3 ，在connect里面定义
 ![输入图片说明](pic/clipboard.png)
 
-正常结束关闭
+#### 正常结束关闭
 ![输入图片说明](pic/clipboard2.png)
 
 参考：

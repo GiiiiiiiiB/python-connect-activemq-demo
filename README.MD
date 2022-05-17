@@ -15,7 +15,7 @@
 #### 启动：相应的bin目录下启动
 ```activemq start```
 
-![输入图片说明](picclipboard.png)
+![输入图片说明](pic/clipboard0.png)
 
 
 #### tips :
@@ -137,6 +137,8 @@ if __name__ == "__main__":
 
 #### 正常结束关闭
 ![输入图片说明](pic/clipboard2.png)
+
+#### 其他的未消费数据在stomp中未查询到，待后期心血来潮有进展再回来更新
 
 参考：
 https://blog.csdn.net/qq_36059561/article/details/104286702  持久化 java

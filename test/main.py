@@ -19,6 +19,7 @@ class MyListener(stomp.ConnectionListener):
         if "end" == frame.body:
             os._exit(0)
         # time.sleep(1)
+        # print(frame.getIntProperty())
 
 
     def on_send(self,frame):

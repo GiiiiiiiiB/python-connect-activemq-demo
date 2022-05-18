@@ -138,6 +138,9 @@ if __name__ == "__main__":
 #### 正常结束关闭
 ![输入图片说明](pic/clipboard2.png)
 
+#### 所有headers参考：
+![输入图片说明](pic/clipboard3.png)
+
 #### 其他的未消费数据在stomp中未查询到，待后期心血来潮有进展再回来更新
 
 参考：
